@@ -1,19 +1,19 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 interface UsersState {
   page: number;
   searchTerm: string;
-  genderFilter: "all" | "male" | "female";
+  genderFilter: 'all' | 'male' | 'female';
 }
 
 const initialState: UsersState = {
   page: 1,
-  searchTerm: "",
-  genderFilter: "all"
+  searchTerm: '',
+  genderFilter: 'all',
 };
 
 const usersSlice = createSlice({
-  name: "users",
+  name: 'users',
   initialState,
   reducers: {
     setPage: (state, action: PayloadAction<number>) => {
@@ -25,24 +25,21 @@ const usersSlice = createSlice({
     setSearchTerm: (state, action: PayloadAction<string>) => {
       state.searchTerm = action.payload;
     },
-    setGenderFilter: (
-      state,
-      action: PayloadAction<"all" | "male" | "female">
-    ) => {
+    setGenderFilter: (state, action: PayloadAction<'all' | 'male' | 'female'>) => {
       state.genderFilter = action.payload;
     },
     resetUsersState: (state) => {
       state.page = 1;
-      state.searchTerm = "";
-      state.genderFilter = "all";
-    }
-  }
+      state.searchTerm = '';
+      state.genderFilter = 'all';
+    },
+  },
 });
 
-export const {
-  setPage,
-  incrementPage,
-  setSearchTerm,
+export const { 
+  setPage, 
+  incrementPage, 
+  setSearchTerm, 
   setGenderFilter,
   resetUsersState
 } = usersSlice.actions;
